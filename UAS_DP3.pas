@@ -11,20 +11,20 @@ type
     alamat: string;
     pekerjaan : string;
 end;
-rec_kpr = record
+    rec_kpr = record
     rumah : double;
     muka : longint;
     tenor: integer;
     bunga: real;
 end;
-rec_oto = record
+    rec_oto = record
     opsi : string;
     harga : double ;
     dp : integer;
     tenor : real;
     bunga : real;
 end;
- rec_umum = record
+    rec_umum = record
     pinjam : extended;
     lama : real ;
     bunga : real;
@@ -34,12 +34,14 @@ const
 max = 100;
 
 var
-pilih,jlh,a,n,i,opsi2 : integer;
-nasabah : array [1..max] of rec_nasabah;
+pilih,i,n,a,jlh,opsi2 : integer;
+nasabah : array [1..max] of rec_nasabah; 
 data_kpr : rec_kpr;
-oto : rec_oto;
 opsi : char;
+oto : rec_oto;
 umum : rec_umum;
+
+// batas variabel
 
 function hitung1(a : double ; b : longint ; c : real ) : double; //perhitungan daftar no 1
 var
@@ -59,6 +61,7 @@ begin
     hitung1 := hasil;
 end;
 
+
 procedure kpr; //menu 2 no 1
 var
 dp : double;
@@ -75,6 +78,7 @@ begin
     writeln('Uang Muka (20% dari Harga Rumah) : Rp.',DP:0:0);
     writeln('Cicilan Anda Perbulan Sebanyak   : Rp.',hitung1(data_kpr.rumah,data_kpr.tenor,data_kpr.bunga):0:0);
 end;
+
 
 procedure otomotif; //menu 2 no 2
 var
@@ -130,6 +134,7 @@ begin
     end;
 end;
 
+
 function hitungku(a : double ; b,c : real) : extended; //perhitungan menu 2 no 3
 var
 total_bunga,pokok_bulan,akumulasi : extended;
@@ -140,6 +145,7 @@ begin
 
     hitungku := akumulasi;
 end;
+
 
 procedure KU;  // menu 2 no 3
 begin
@@ -152,8 +158,6 @@ begin
     writeln;
     writeln('Cicilan anda perbulan : Rp.',hitungku(umum.pinjam,umum.lama,umum.bunga):0:0);
 end;
-
-
 
 
 procedure data_diri(a : integer); // menu 2 no 4
@@ -173,6 +177,9 @@ begin
     end;
     
 end;
+
+
+// MAIN PROGRAM
 
 begin
     clrscr;
@@ -246,13 +253,10 @@ begin
                 case pilih of
                 1:
                 kpr;
-
-                2:
+                2: 
                 otomotif;
-
                 3:
                 ku;
-
                 4:
                 data_diri(jlh);
                 5:

@@ -17,6 +17,13 @@ rec_kpr = record
     tenor: integer;
     bunga: real;
 end;
+rec_oto = record
+    opsi : string;
+    harga : double ;
+    dp : integer;
+    tenor : real;
+    bunga : real;
+end;
 
 const
 max = 100;
@@ -25,6 +32,7 @@ var
 pilih,jlh,a,n,i,opsi2 : integer;
 nasabah : array [1..max] of rec_nasabah;
 data_kpr : rec_kpr;
+oto : rec_oto;
 opsi : char;
 
 function hitung1(a : double ; b : longint ; c : real ) : double; //perhitungan daftar no 1
@@ -60,6 +68,60 @@ begin
     writeln;
     writeln('Uang Muka (20% dari Harga Rumah) : Rp.',DP:0:0);
     writeln('Cicilan Anda Perbulan Sebanyak   : Rp.',hitung1(data_kpr.rumah,data_kpr.tenor,data_kpr.bunga):0:0);
+end;
+
+procedure otomotif; //menu 2 no 2
+var
+dp,pk,tb,total,tenor,totalTB: real;
+begin
+    clrscr;
+
+    write('Silahkan Input Jenis Kendaraan (Motor/Mobil) : ');
+    readln(oto.opsi);
+
+    oto.opsi := lowercase(oto.opsi);
+    clrscr;
+
+    if (oto.opsi = 'mobil') then
+    begin
+        write('INPUT HARGA          : '); readln(oto.harga);
+        write('INPUT TENOR (TAHUN)  : '); readln(oto.tenor);
+        write('INPUT DP (%)         : '); readln(oto.dp);
+        write('INPUT SUKU BUNGA (%) : '); readln(oto.bunga);
+
+        dp := (oto.dp/100) * oto.harga;
+        PK := oto.harga - dp;
+        TB := PK * (oto.bunga/100);
+        totalTB := TB * oto.tenor;
+        tenor := oto.tenor * 12;
+        TOTAL := (PK + totalTB) / (tenor);
+
+        writeln;
+       writeln('Total Bunga                           : Rp.',totalTB:0:0);
+        writeln('Angsuran ',oto.opsi,' anda per bulan sebesar : Rp.',total:0:0);
+    end
+
+    else if (oto.opsi = 'motor') then
+    begin
+        write('INPUT HARGA          : '); readln(oto.harga);
+        write('INPUT TENOR (BULAN)  : '); readln(oto.tenor);
+        write('INPUT DP (%)         : '); readln(oto.dp);
+        write('INPUT SUKU BUNGA (%) : '); readln(oto.bunga);
+
+        dp := (oto.dp/100) * oto.harga;
+        PK := oto.harga - dp;
+        TB := (PK * ((oto.bunga/100)/12) * oto.tenor);
+        TOTAL := (PK + TB) / (oto.tenor);
+
+        writeln;
+        writeln('Total Bunga                           : Rp.',TB:0:0);
+        writeln('Angsuran ',oto.opsi,' anda per bulan sebesar : Rp.',total:0:0);  
+    end
+
+    else
+    begin
+    writeln('Jenis Kendaraan Tidak Valid');
+    end;
 end;
 
 
@@ -155,6 +217,9 @@ begin
                 case pilih of
                 1:
                 kpr;
+
+                2:
+                otomotif;
 
                 4:
                 data_diri(jlh);

@@ -1,4 +1,4 @@
-uses crt;
+uses crt,math;
 
 label 
 1;
@@ -11,6 +11,12 @@ type
     alamat: string;
     pekerjaan : string;
 end;
+rec_kpr = record
+    rumah : double;
+    muka : longint;
+    tenor: integer;
+    bunga: real;
+end;
 
 const
 max = 100;
@@ -18,7 +24,45 @@ max = 100;
 var
 pilih,jlh,a,n,i,opsi2 : integer;
 nasabah : array [1..max] of rec_nasabah;
+data_kpr : rec_kpr;
 opsi : char;
+
+function hitung1(a : double ; b : longint ; c : real ) : double; //perhitungan daftar no 1
+var
+sb,x,y,dp,pp,hasil: extended;
+waktu : integer;
+begin
+    DP := A * 0.2;
+    pp := A - DP;
+    sb := (c/100)/12 ;
+    waktu := b * 12;
+
+    x := (1 + sb) ;
+    y := power (x,waktu);
+
+    hasil := (pp * sb * y) / (y -1);
+    
+    hitung1 := hasil;
+end;
+
+procedure kpr; //menu 2 no 1
+var
+dp : double;
+begin
+    clrscr;
+    write('INPUT HARGA RUMAH : '); readln(data_kpr.rumah);
+    write('INPUT TENOR RUMAH (TAHUN) : '); readln(data_kpr.tenor);
+    write('INPUT SUKU BUNGA TAHUNAN (TETAP) :      %'); 
+    gotoXY (36,3) ; readln(data_kpr.bunga);
+
+    dp := (20/100) * data_kpr.rumah ;
+
+    writeln;
+    writeln('Uang Muka (20% dari Harga Rumah) : Rp.',DP:0:0);
+    writeln('Cicilan Anda Perbulan Sebanyak   : Rp.',hitung1(data_kpr.rumah,data_kpr.tenor,data_kpr.bunga):0:0);
+end;
+
+
 
 
 procedure data_diri(a : integer); // menu 2 no 4
@@ -109,7 +153,9 @@ begin
                 clrscr;
 
                 case pilih of
-              
+                1:
+                kpr;
+
                 4:
                 data_diri(jlh);
                 5:

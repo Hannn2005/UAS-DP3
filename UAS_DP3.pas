@@ -24,6 +24,11 @@ rec_oto = record
     tenor : real;
     bunga : real;
 end;
+ rec_umum = record
+    pinjam : extended;
+    lama : real ;
+    bunga : real;
+end;
 
 const
 max = 100;
@@ -34,6 +39,7 @@ nasabah : array [1..max] of rec_nasabah;
 data_kpr : rec_kpr;
 oto : rec_oto;
 opsi : char;
+umum : rec_umum;
 
 function hitung1(a : double ; b : longint ; c : real ) : double; //perhitungan daftar no 1
 var
@@ -122,6 +128,29 @@ begin
     begin
     writeln('Jenis Kendaraan Tidak Valid');
     end;
+end;
+
+function hitungku(a : double ; b,c : real) : extended; //perhitungan menu 2 no 3
+var
+total_bunga,pokok_bulan,akumulasi : extended;
+begin
+    total_bunga := ((a * (c/100)) * b) / (b * 12);
+    pokok_bulan := (a / (b*12));
+    akumulasi := (total_bunga + pokok_bulan) ;
+
+    hitungku := akumulasi;
+end;
+
+procedure KU;  // menu 2 no 3
+begin
+    clrscr;
+    write('Masukkan Jumlah Pinjaman          : '); readln(umum.pinjam);
+    write('Masukkan Lama Pinjaman (TAHUN)    : '); readln(umum.lama);
+    write('Masukkan Suku Bunga FLAT (TAHUN)  :      %'); 
+    gotoXY (37,3) ; readln(umum.bunga);
+
+    writeln;
+    writeln('Cicilan anda perbulan : Rp.',hitungku(umum.pinjam,umum.lama,umum.bunga):0:0);
 end;
 
 
@@ -220,6 +249,9 @@ begin
 
                 2:
                 otomotif;
+
+                3:
+                ku;
 
                 4:
                 data_diri(jlh);

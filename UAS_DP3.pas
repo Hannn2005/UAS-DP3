@@ -11,7 +11,7 @@ type
     alamat: string;
     pekerjaan : string;
 end;
-    rec_kpr = record
+    rec_kpr = record// ini record untuk variabel data_kpr
     rumah : double;
     muka : longint;
     tenor: integer;

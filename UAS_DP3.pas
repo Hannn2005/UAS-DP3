@@ -1,6 +1,6 @@
 uses crt,math; // ini untuk melakukan operasi matematika tingkat lanjut
 
-label 
+label // ini untuk looping 
 1;
 
 type 

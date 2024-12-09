@@ -92,7 +92,7 @@ begin
     oto.opsi := lowercase(oto.opsi);
     clrscr;
 
-    if (oto.opsi = 'mobil') then
+    if (oto.opsi = 'mobil') then // ini untuk operasi kondisi oto.opsi= mobil
     begin
         write('INPUT HARGA          : '); readln(oto.harga);
         write('INPUT TENOR (TAHUN)  : '); readln(oto.tenor);

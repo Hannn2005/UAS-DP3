@@ -1,4 +1,4 @@
-uses crt,math;
+uses crt,math; // ini untuk melakukan operasi matematika tingkat lanjut
 
 label 
 1;

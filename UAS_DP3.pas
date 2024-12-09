@@ -4,7 +4,7 @@ label
 1;
 
 type 
-    rec_nasabah = record
+    rec_nasabah = record // ini record dari variabael nasabah
     nama : string;
     umur : integer;
     ttl  : string;

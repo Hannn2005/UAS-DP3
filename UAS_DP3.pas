@@ -31,7 +31,7 @@ end;
 end;
 
 const
-max = 100;
+max = 100;// ini untuk maksimal jumlah nasabah
 
 var
 pilih,i,n,a,jlh,opsi2 : integer;
@@ -130,7 +130,7 @@ begin
 
     else
     begin
-    writeln('Jenis Kendaraan Tidak Valid');
+    writeln('Jenis Kendaraan Tidak Valid');// ini apabila tidak ditemukan jenis kendaraan
     end;
 end;
 

@@ -17,7 +17,7 @@ end;
     tenor: integer;
     bunga: real;
 end;
-    rec_oto = record
+    rec_oto = record// ini record untuk variabel oto
     opsi : string;
     harga : double ;
     dp : integer;

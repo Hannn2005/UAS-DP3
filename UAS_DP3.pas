@@ -24,7 +24,7 @@ end;
     tenor : real;
     bunga : real;
 end;
-    rec_umum = record
+    rec_umum = record// ini record untuk variabel umum
     pinjam : extended;
     lama : real ;
     bunga : real;

@@ -280,7 +280,7 @@ begin
     end;
     
     else
-    writeln('SILAHKAN INPUT DAFTAR DENGAN BENAR (1-2)');
+    writeln('SILAHKAN INPUT DAFTAR DENGAN BENAR (1-3)');
     readln;
     end;
 

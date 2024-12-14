@@ -176,6 +176,7 @@ begin
         writeln;
     end;
     
+    
 end;
 
 
@@ -224,6 +225,10 @@ begin
         end;
 
     a := n;
+    writeln('Data Telah Tercatat, Silahkan Akses Data Nasabah Pada Menu 2 no 4');
+    writeln;
+    write('Enter untuk melanjutkan...');
+    readkey;
 
     end;
 
